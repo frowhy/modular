@@ -1,0 +1,32 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Modules\Core\Abstracts\TransformerAbstract;
+
+/**
+ * Class $CLASS$
+ *
+ * @package $NAMESPACE$
+ */
+class $CLASS$ extends TransformerAbstract
+{
+    /**
+     * Transform the $MODEL$ entity.
+     *
+     * @param \$ROOT_NAMESPACE$\Entities\$MODEL$ $attribute
+     *
+     * @return array
+     */
+    public function fields($attribute)
+    {
+        return [
+            'id' => (int) $attribute->id,
+
+            /* place your other model properties here */
+
+            'created_at' => $attribute->createdAt,
+            'updated_at' => $attribute->updatedAt
+        ];
+    }
+}

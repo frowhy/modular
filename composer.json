@@ -1,0 +1,32 @@
+{
+    "name": "frowhy/modular",
+    "description": "Modular development in laravel.",
+    "type": "library",
+    "require": {
+        "nwidart/laravel-modules": "^4.1"
+    },
+    "require-dev": {
+        "illuminate/support": "^5.8",
+        "illuminate/container": "^5.8",
+        "illuminate/contracts": "^5.8"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Govern Fu",
+            "email": "frowhy@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Frowhy\\Modular\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Frowhy\\Modular\\ServiceProvider"
+            ]
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "name": "frowhy/example",
+    "description": "",
+    "authors": [
+        {
+            "name": "Govern Fu",
+            "email": "frowhy@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\Example\\Providers\\ExampleServiceProvider"
+            ],
+            "aliases": {
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Example\\": ""
+        }
+    }
+}

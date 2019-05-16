@@ -1,0 +1,24 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use $ROOT_NAMESPACE$\Transformers\$RESOURCE_NAME$;
+use Prettus\Repository\Presenter\FractalPresenter;
+
+/**
+ * Class $CLASS$
+ *
+ * @package $NAMESPACE$;
+ */
+class $CLASS$ extends FractalPresenter
+{
+    /**
+     * Transformer
+     *
+     * @return \League\Fractal\TransformerAbstract
+     */
+    public function getTransformer()
+    {
+        return new $RESOURCE_NAME$();
+    }
+}

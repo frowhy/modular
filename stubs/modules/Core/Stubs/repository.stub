@@ -1,0 +1,11 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Prettus\Repository\Contracts\RepositoryCriteriaInterface;
+use Prettus\Repository\Contracts\RepositoryInterface;
+
+interface $CLASS$ extends RepositoryInterface, RepositoryCriteriaInterface
+{
+    //
+}

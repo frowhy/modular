@@ -13,8 +13,7 @@ use Illuminate\Contracts\Support\{
     Arrayable, Renderable, Responsable
 };
 use Illuminate\Http\Response as BaseResponse;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
+use Illuminate\Support\{Arr, Str};
 use Modules\Core\Contracts\Support\Boolable;
 use Modules\Core\Enums\StatusCodeEnum;
 use SoapBox\Formatter\Formatter;
@@ -34,6 +33,7 @@ class Response implements Responsable, Arrayable, Renderable, Boolable
 
     /**
      * 格式化响应
+     *
      * @return \Illuminate\Http\Response
      */
     private function format(): BaseResponse
@@ -60,6 +60,7 @@ class Response implements Responsable, Arrayable, Renderable, Boolable
     /**
      * s
      * 允许跨域请求
+     *
      * @param \Illuminate\Http\Response $response
      * @return \Illuminate\Http\Response
      */
@@ -99,7 +100,7 @@ class Response implements Responsable, Arrayable, Renderable, Boolable
      */
     public function toArray(): array
     {
-        return (array) array_get($this->response, 'data');
+        return (array) Arr::get($this->response, 'data');
     }
 
     /**
@@ -128,7 +129,7 @@ class Response implements Responsable, Arrayable, Renderable, Boolable
         if ($request->has($param)) {
             return $request->get($param);
         } else {
-            $header_param = title_case(kebab_case(studly_case($param)));
+            $header_param = Str::title(Str::kebab(Str::studly($param)));
             if ($request->hasHeader($header_param)) {
                 return $request->header($header_param);
             }
@@ -158,12 +159,12 @@ class Response implements Responsable, Arrayable, Renderable, Boolable
      * @param string|null $message
      * @return \Modules\Core\Supports\Response
      */
-    public static function handle(int $statusCode, $data, bool $overwrite = false, string $message = null): Response
+    public static function handle(int $statusCode, $data = null, bool $overwrite = false, string $message = null): Response
     {
         if (($overwrite && is_array($data))) {
             $_data = $data;
-        } elseif (is_array($data) && array_has($data, 'data')) {
-            $_data = array_get($data, 'data');
+        } elseif (is_array($data) && Arr::has($data, 'data')) {
+            $_data = Arr::get($data, 'data');
         } else {
             if (is_string($data) && json_decode($data)) {
                 $_data = json_decode($data);
@@ -176,11 +177,11 @@ class Response implements Responsable, Arrayable, Renderable, Boolable
         } else {
             $_meta = [];
         }
-        $_meta = array_prepend($_meta, $statusCode, 'status_code');
-        $_meta = array_prepend($_meta, $message ?? StatusCodeEnum::__($statusCode), 'message');
-        array_set($response, 'meta', $_meta);
+        $_meta = Arr::prepend($_meta, $statusCode, 'status_code');
+        $_meta = Arr::prepend($_meta, $message ?? StatusCodeEnum::__($statusCode), 'message');
+        Arr::set($response, 'meta', $_meta);
         if (!is_null($_data)) {
-            array_set($response, 'data', $_data);
+            Arr::set($response, 'data', $_data);
         }
 
         return self::call($response);
@@ -194,7 +195,7 @@ class Response implements Responsable, Arrayable, Renderable, Boolable
      * @param string|null $message
      * @return \Modules\Core\Supports\Response
      */
-    public static function handleOk($data, bool $overwrite = false, string $message = null): Response
+    public static function handleOk($data = null, bool $overwrite = false, string $message = null): Response
     {
         return self::handle(StatusCodeEnum::HTTP_OK, $data, $overwrite, $message);
     }
@@ -207,7 +208,7 @@ class Response implements Responsable, Arrayable, Renderable, Boolable
      * @param string|null $message
      * @return \Modules\Core\Supports\Response
      */
-    public static function handleCreated($data, bool $overwrite = false, string $message = null): Response
+    public static function handleCreated($data = null, bool $overwrite = false, string $message = null): Response
     {
         return self::handle(StatusCodeEnum::HTTP_CREATED, $data, $overwrite, $message);
     }
@@ -220,7 +221,7 @@ class Response implements Responsable, Arrayable, Renderable, Boolable
      * @param string|null $message
      * @return \Modules\Core\Supports\Response
      */
-    public static function handleAccepted($data, bool $overwrite = false, string $message = null): Response
+    public static function handleAccepted($data = null, bool $overwrite = false, string $message = null): Response
     {
         return self::handle(StatusCodeEnum::HTTP_ACCEPTED, $data, $overwrite, $message);
     }
@@ -233,7 +234,7 @@ class Response implements Responsable, Arrayable, Renderable, Boolable
      * @param string|null $message
      * @return \Modules\Core\Supports\Response
      */
-    public static function handleNoContent($data, bool $overwrite = false, string $message = null): Response
+    public static function handleNoContent($data = null, bool $overwrite = false, string $message = null): Response
     {
         return self::handle(StatusCodeEnum::HTTP_NO_CONTENT, $data, $overwrite, $message);
     }
@@ -246,7 +247,7 @@ class Response implements Responsable, Arrayable, Renderable, Boolable
      * @param string|null $message
      * @return \Modules\Core\Supports\Response
      */
-    public static function handleResetContent($data, bool $overwrite = false, string $message = null): Response
+    public static function handleResetContent($data = null, bool $overwrite = false, string $message = null): Response
     {
         return self::handle(StatusCodeEnum::HTTP_RESET_CONTENT, $data, $overwrite, $message);
     }
@@ -259,7 +260,7 @@ class Response implements Responsable, Arrayable, Renderable, Boolable
      * @param string|null $message
      * @return \Modules\Core\Supports\Response
      */
-    public static function handleSeeOther($data, bool $overwrite = false, string $message = null): Response
+    public static function handleSeeOther($data = null, bool $overwrite = false, string $message = null): Response
     {
         return self::handle(StatusCodeEnum::HTTP_SEE_OTHER, $data, $overwrite, $message);
     }
@@ -272,7 +273,7 @@ class Response implements Responsable, Arrayable, Renderable, Boolable
      * @param string|null $message
      * @return \Modules\Core\Supports\Response
      */
-    public static function handleBadRequest($data, bool $overwrite = false, string $message = null): Response
+    public static function handleBadRequest($data = null, bool $overwrite = false, string $message = null): Response
     {
         return self::handle(StatusCodeEnum::HTTP_BAD_REQUEST, $data, $overwrite, $message);
     }
@@ -285,7 +286,7 @@ class Response implements Responsable, Arrayable, Renderable, Boolable
      * @param string|null $message
      * @return \Modules\Core\Supports\Response
      */
-    public static function handleUnauthorized($data, bool $overwrite = false, string $message = null): Response
+    public static function handleUnauthorized($data = null, bool $overwrite = false, string $message = null): Response
     {
         return self::handle(StatusCodeEnum::HTTP_UNAUTHORIZED, $data, $overwrite, $message);
     }
@@ -298,7 +299,7 @@ class Response implements Responsable, Arrayable, Renderable, Boolable
      * @param string|null $message
      * @return \Modules\Core\Supports\Response
      */
-    public static function handlePaymentRequired($data, bool $overwrite = false, string $message = null): Response
+    public static function handlePaymentRequired($data = null, bool $overwrite = false, string $message = null): Response
     {
         return self::handle(StatusCodeEnum::HTTP_PAYMENT_REQUIRED, $data, $overwrite, $message);
     }
@@ -311,7 +312,7 @@ class Response implements Responsable, Arrayable, Renderable, Boolable
      * @param string|null $message
      * @return \Modules\Core\Supports\Response
      */
-    public static function handleForbidden($data, bool $overwrite = false, string $message = null): Response
+    public static function handleForbidden($data = null, bool $overwrite = false, string $message = null): Response
     {
         return self::handle(StatusCodeEnum::HTTP_PAYMENT_REQUIRED, $data, $overwrite, $message);
     }
@@ -324,7 +325,7 @@ class Response implements Responsable, Arrayable, Renderable, Boolable
      * @param string|null $message
      * @return \Modules\Core\Supports\Response
      */
-    public static function handleNotFound($data, bool $overwrite = false, string $message = null): Response
+    public static function handleNotFound($data = null, bool $overwrite = false, string $message = null): Response
     {
         return self::handle(StatusCodeEnum::HTTP_NOT_FOUND, $data, $overwrite, $message);
     }
@@ -337,7 +338,7 @@ class Response implements Responsable, Arrayable, Renderable, Boolable
      * @param string|null $message
      * @return \Modules\Core\Supports\Response
      */
-    public static function handleUnprocessableEntity($data, bool $overwrite = false, string $message = null): Response
+    public static function handleUnprocessableEntity($data = null, bool $overwrite = false, string $message = null): Response
     {
         return self::handle(StatusCodeEnum::HTTP_UNPROCESSABLE_ENTITY, $data, $overwrite, $message);
     }
@@ -350,7 +351,7 @@ class Response implements Responsable, Arrayable, Renderable, Boolable
      * @param string|null $message
      * @return \Modules\Core\Supports\Response
      */
-    public static function handleLocked($data, bool $overwrite = false, string $message = null): Response
+    public static function handleLocked($data = null, bool $overwrite = false, string $message = null): Response
     {
         return self::handle(StatusCodeEnum::HTTP_LOCKED, $data, $overwrite, $message);
     }
@@ -363,7 +364,7 @@ class Response implements Responsable, Arrayable, Renderable, Boolable
      * @param string|null $message
      * @return \Modules\Core\Supports\Response
      */
-    public static function handleTooManyRequests($data, bool $overwrite = false, string $message = null): Response
+    public static function handleTooManyRequests($data = null, bool $overwrite = false, string $message = null): Response
     {
         return self::handle(StatusCodeEnum::HTTP_TOO_MANY_REQUESTS, $data, $overwrite, $message);
     }
@@ -376,7 +377,7 @@ class Response implements Responsable, Arrayable, Renderable, Boolable
      * @param string|null $message
      * @return \Modules\Core\Supports\Response
      */
-    public static function handleInternalServerError($data, bool $overwrite = false, string $message = null): Response
+    public static function handleInternalServerError($data = null, bool $overwrite = false, string $message = null): Response
     {
         return self::handle(StatusCodeEnum::HTTP_INTERNAL_SERVER_ERROR, $data, $overwrite, $message);
     }
@@ -389,7 +390,7 @@ class Response implements Responsable, Arrayable, Renderable, Boolable
      * @param string|null $message
      * @return \Modules\Core\Supports\Response
      */
-    public static function handleNotImplemented($data, bool $overwrite = false, string $message = null): Response
+    public static function handleNotImplemented($data = null, bool $overwrite = false, string $message = null): Response
     {
         return self::handle(StatusCodeEnum::HTTP_NOT_IMPLEMENTED, $data, $overwrite, $message);
     }

@@ -4,6 +4,8 @@
 namespace Modules\Core\Enums;
 
 
+use Illuminate\Support\{Arr, Str};
+
 class BaseEnum
 {
     protected const __ = [];
@@ -11,10 +13,10 @@ class BaseEnum
     public static function __(int $enum): string
     {
         $callClass = get_called_class();
-        $module = strtolower(str_before(str_after($callClass, 'Modules\\'), '\\'));
-        $scope = camel_case(str_before(str_after($callClass, 'Enums\\'), 'Enum'));
+        $module = strtolower(Str::before(Str::after($callClass, 'Modules\\'), '\\'));
+        $scope = Str::camel(Str::before(Str::after($callClass, 'Enums\\'), 'Enum'));
 
-        if (!array_has(static::__, $enum)) {
+        if (!Arr::has(static::__, $enum)) {
             return __('core::default.translator_key_is_not_found');
         }
 

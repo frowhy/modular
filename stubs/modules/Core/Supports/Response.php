@@ -13,6 +13,8 @@ use Illuminate\Contracts\Support\{
     Arrayable, Renderable, Responsable
 };
 use Illuminate\Http\Response as BaseResponse;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 use Modules\Core\Contracts\Support\Boolable;
 use Modules\Core\Enums\StatusCodeEnum;
 use SoapBox\Formatter\Formatter;
@@ -117,7 +119,7 @@ class Response implements Responsable, Arrayable, Renderable, Boolable
      */
     public function toBool(): bool
     {
-        return 200 === array_get($this->response, 'meta.status_code');
+        return Str::startsWith(Arr::get($this->response, 'meta.status_code'), 2);
     }
 
     public static function param(string $param): ?string

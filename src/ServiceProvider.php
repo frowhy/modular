@@ -16,10 +16,7 @@ class ServiceProvider extends LaravelServiceProvider
             dirname(__DIR__).'/config/repository.php' => config_path('repository.php'),
         ], 'config');
         $this->publishes([
-            dirname(__DIR__).'/stubs/modules' => base_path('modules'),
-        ], 'initialize');
-        $this->publishes([
-            dirname(__DIR__).'/stubs/Example' => base_path('modules/Example'),
+            dirname(__DIR__).'/stubs/example' => base_path('modules/Example'),
         ], 'example');
     }
 

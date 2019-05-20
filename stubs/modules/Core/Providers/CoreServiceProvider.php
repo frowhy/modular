@@ -8,9 +8,7 @@ use Event;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Str;
-use Modules\Core\Supports\IdentificationCard;
 use Prettus\Repository\Events\RepositoryEventBase;
-use Validator;
 
 class CoreServiceProvider extends BaseServiceProvider
 {
@@ -29,12 +27,10 @@ class CoreServiceProvider extends BaseServiceProvider
     public function boot()
     {
         $this->setLocale();
-        $this->setPrecision();
         $this->registerTranslations();
         $this->registerConfig();
         $this->registerViews();
         $this->registerFactories();
-        $this->registerValidators();
         $this->registerObservers();
         $this->registerTelescope();
         $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations');
@@ -129,18 +125,6 @@ class CoreServiceProvider extends BaseServiceProvider
     public function setLocale()
     {
         Carbon::setLocale('zh');
-    }
-
-    public function setPrecision()
-    {
-        ini_set('precision', 17);
-    }
-
-    public function registerValidators()
-    {
-        Validator::extend('identification_card', function ($attribute, $value, $parameters, $validator) {
-            return IdentificationCard::validateIDCard($value);
-        });
     }
 
     public function registerObservers()

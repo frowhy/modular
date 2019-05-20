@@ -11,6 +11,7 @@ namespace Modules\Core\Traits;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Modules\Core\Abstracts\TransformerAbstract;
+use Modules\Core\Contracts\Repository\Filter;
 use Modules\Core\Supports\Response;
 use Session;
 
@@ -18,6 +19,7 @@ trait TransformerStructureTrait
 {
     private $transform;
     private $field;
+    private $filter;
 
     public function transform($transform)
     {
@@ -25,6 +27,7 @@ trait TransformerStructureTrait
         $this->field = $this->fields($transform);
         $this->parseRequestedFields();
         $this->parseExcludeFields();
+        $this->filter = app(Filter::class);
 
         return $this->field;
     }
@@ -32,7 +35,7 @@ trait TransformerStructureTrait
     protected function parseRequestedFields()
     {
         $class = class_basename($this->transform);
-        $param = Response::param('requested_fields') ?? Session::get("{$class}.requested_fields");
+        $param = Response::param('requested_fields') ?? $this->filter->requestedFields[$class];
         if (!is_null($param)) {
             if (is_array($param)) {
                 $requestedFields = $param;
@@ -68,7 +71,7 @@ trait TransformerStructureTrait
     protected function parseExcludeFields()
     {
         $class = class_basename($this->transform);
-        $param = Response::param('exclude_fields') ?? Session::get("{$class}.exclude_fields");
+        $param = Response::param('exclude_fields') ?? $this->filter->excludeFields[$class];
 
         if (!is_null($param)) {
             if (is_array($param)) {

@@ -9,7 +9,7 @@
 namespace Modules\Core\Traits;
 
 use Illuminate\Support\Str;
-use Session;
+use Modules\Core\Contracts\Repository\Filter;
 
 /**
  * Trait RepositoryStructureTrait
@@ -22,7 +22,8 @@ trait RepositoryStructureTrait
     public function only(array $attributes)
     {
         $model = Str::before(class_basename(get_called_class()), 'Repository');
-        Session::flash("{$model}.requested_fields", $attributes);
+        $filter = app(Filter::class);
+        $filter->requestedFields[$model] = $attributes;
 
         return $this;
     }
@@ -30,7 +31,8 @@ trait RepositoryStructureTrait
     public function except(array $attributes)
     {
         $model = Str::before(class_basename(get_called_class()), 'Repository');
-        Session::flash("{$model}.exclude_fields", $attributes);
+        $filter = app(Filter::class);
+        $filter->excludeFields[$model] = $attributes;
 
         return $this;
     }

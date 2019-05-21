@@ -3,7 +3,8 @@
     "description": "Modular development in laravel.",
     "type": "library",
     "require": {
-        "nwidart/laravel-modules": "^4.1",
+        "php": "^7.2",
+        "nwidart/laravel-modules": "^5.0",
         "frowhy/module-core": "^0.1"
     },
     "require-dev": {

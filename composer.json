@@ -4,7 +4,7 @@
     "type": "library",
     "require": {
         "nwidart/laravel-modules": "^4.1",
-        "frowhy/module-core": "^0.1.0"
+        "frowhy/module-core": "^0.1"
     },
     "require-dev": {
         "laravel/framework": "^5.8"
@@ -27,5 +27,7 @@
                 "Frowhy\\Modular\\ServiceProvider"
             ]
         }
-    }
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev"
 }

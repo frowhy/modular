@@ -3,9 +3,9 @@
 namespace Modules\Example\Providers;
 
 
-use Illuminate\Support\ServiceProvider as BaseServiceProvider;
+use Illuminate\Support\ServiceProvider;
 
-class ServiceProvider extends BaseServiceProvider
+class ServiceServiceProvider extends ServiceProvider
 {
     /**
      * 绑定服务接口

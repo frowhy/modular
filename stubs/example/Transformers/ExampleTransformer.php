@@ -24,9 +24,6 @@ class ExampleTransformer extends TransformerAbstract
             'id' => (int) $attribute->id,
 
             /* place your other model properties here */
-
-            'created_at' => $attribute->createdAt,
-            'updated_at' => $attribute->updatedAt
         ];
     }
 }

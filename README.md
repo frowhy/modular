@@ -4,7 +4,6 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://scrutinizer-ci.com/g/frowhy/modular/badges/build.png?b=develop)](https://scrutinizer-ci.com/g/frowhy/modular/build-status/develop)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/frowhy/modular/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/frowhy/modular/?branch=develop)
-[![Code Coverage](https://scrutinizer-ci.com/g/frowhy/modular/badges/coverage.png?b=develop)](https://scrutinizer-ci.com/g/frowhy/modular/?branch=develop)
 [![Code Intelligence Status](https://scrutinizer-ci.com/g/frowhy/modular/badges/code-intelligence.svg?b=develop)](https://scrutinizer-ci.com/code-intelligence)
 [![Total Downloads](https://img.shields.io/packagist/dt/frowhy/modular.svg?style=flat-square)](https://packagist.org/packages/frowhy/modular)
 

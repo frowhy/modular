@@ -1,11 +1,37 @@
 # Modular
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/frowhy/modular.svg?style=flat-square)](https://packagist.org/packages/frowhy/modular)
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://scrutinizer-ci.com/g/frowhy/modular/badges/build.png?b=develop)](https://scrutinizer-ci.com/g/frowhy/modular/build-status/develop)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/frowhy/modular/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/frowhy/modular/?branch=develop)
-[![Code Intelligence Status](https://scrutinizer-ci.com/g/frowhy/modular/badges/code-intelligence.svg?b=develop)](https://scrutinizer-ci.com/code-intelligence)
-[![Total Downloads](https://img.shields.io/packagist/dt/frowhy/modular.svg?style=flat-square)](https://packagist.org/packages/frowhy/modular)
+
+<p align="center">
+    <a href="https://packagist.org/packages/frowhy/modular">
+        <img src="https://poser.pugx.org/frowhy/modular/v/stable" alt="Latest Stable Version">
+    </a>
+    <a href="https://packagist.org/packages/frowhy/modular">
+        <img src="https://poser.pugx.org/frowhy/modular/downloads" alt="Total Downloads">
+    </a>
+    <a href="https://packagist.org/packages/frowhy/modular">
+        <img src="https://poser.pugx.org/frowhy/modular/v/unstable" alt="Latest Unstable Version">
+    </a>
+    <a href="https://packagist.org/packages/frowhy/modular">
+        <img src="https://poser.pugx.org/frowhy/modular/license" alt="License">
+    </a>
+    <a href="https://packagist.org/packages/frowhy/modular">
+        <img src="https://poser.pugx.org/frowhy/modular/composerlock" alt="composer.lock">
+    </a>
+</p>
+<p align="center">
+    <a href="https://github.styleci.io/repos/186979260">
+        <img src="https://github.styleci.io/repos/186979260/shield?style=flat&branch=develop" alt="StyleCI Status">
+    </a>
+    <a href="https://scrutinizer-ci.com/g/frowhy/modular/?branch=develop">
+        <img src="https://scrutinizer-ci.com/g/frowhy/modular/badges/quality-score.png?b=develop" alt="Scrutinizer Code Quality">
+    </a>
+    <a href="https://scrutinizer-ci.com/g/frowhy/modular/build-status/develop">
+        <img src="https://scrutinizer-ci.com/g/frowhy/modular/badges/build.png?b=develop" alt="Build Status">
+    </a>
+    <a href="https://scrutinizer-ci.com/code-intelligence">
+        <img src="https://scrutinizer-ci.com/g/frowhy/modular/badges/code-intelligence.svg?b=develop" alt="Code Intelligence Status">
+    </a>
+</p>
 
 `Modular` 包旨在为开发人员提供一组工具，帮助您以模块化的方式轻松快速地构建自己的 `API`。虽然这个方案的目标是保持尽可能灵活，但它仍然不能涵盖所有情况并解决所有问题。
 

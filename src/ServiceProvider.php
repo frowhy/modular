@@ -2,7 +2,6 @@
 
 namespace Frowhy\Modular;
 
-
 use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
 
 class ServiceProvider extends LaravelServiceProvider

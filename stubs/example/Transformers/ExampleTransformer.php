@@ -5,9 +5,7 @@ namespace Modules\Example\Transformers;
 use Modules\Core\Abstracts\TransformerAbstract;
 
 /**
- * Class ExampleTransformer
- *
- * @package Modules\Example\Transformers
+ * Class ExampleTransformer.
  */
 class ExampleTransformer extends TransformerAbstract
 {

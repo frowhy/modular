@@ -3,8 +3,8 @@
 namespace Modules\Example\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Nwidart\Modules\Facades\Module;
 use Modules\Core\Supports\Response;
+use Nwidart\Modules\Facades\Module;
 
 class ExampleController extends Controller
 {

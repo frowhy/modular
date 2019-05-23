@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Modules\Example\Enums;
-
 
 use Modules\Core\Enums\BaseEnum;
 

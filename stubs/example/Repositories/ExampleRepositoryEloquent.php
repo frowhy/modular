@@ -12,7 +12,7 @@ class ExampleRepositoryEloquent extends BaseRepository implements ExampleReposit
     use RepositoryStructureTrait;
 
     /**
-     * Specify Model
+     * Specify Model.
      *
      * @return string
      */
@@ -22,7 +22,7 @@ class ExampleRepositoryEloquent extends BaseRepository implements ExampleReposit
     }
 
     /**
-     * Specify Presenter
+     * Specify Presenter.
      *
      * @return mixed
      */
@@ -32,8 +32,7 @@ class ExampleRepositoryEloquent extends BaseRepository implements ExampleReposit
     }
 
     /**
-     * Boot up the repository, pushing criteria
-     *
+     * Boot up the repository, pushing criteria.
      */
     public function boot()
     {

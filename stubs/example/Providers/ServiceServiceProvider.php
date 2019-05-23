@@ -2,13 +2,12 @@
 
 namespace Modules\Example\Providers;
 
+use Illuminate\Support\ServiceProvider;
 
-use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-
-class ServiceProvider extends BaseServiceProvider
+class ServiceServiceProvider extends ServiceProvider
 {
     /**
-     * 绑定服务接口
+     * 绑定服务接口.
      *
      * @return void
      */

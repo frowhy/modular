@@ -2,8 +2,8 @@
 
 namespace Modules\Example\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Illuminate\Support\ServiceProvider;
 
 class ExampleServiceProvider extends ServiceProvider
 {
@@ -99,7 +99,7 @@ class ExampleServiceProvider extends ServiceProvider
      */
     public function registerFactories()
     {
-        if (!app()->environment('production')) {
+        if (!$this->app->environment('production')) {
             app(Factory::class)->load(__DIR__.'/../Database/factories');
         }
     }

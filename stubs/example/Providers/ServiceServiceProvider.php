@@ -2,12 +2,13 @@
 
 namespace Modules\Example\Providers;
 
+
 use Illuminate\Support\ServiceProvider;
 
 class ServiceServiceProvider extends ServiceProvider
 {
     /**
-     * 绑定服务接口.
+     * 绑定服务接口
      *
      * @return void
      */

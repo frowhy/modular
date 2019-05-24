@@ -4,8 +4,9 @@ namespace Modules\Example\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Example\Entities\Example;
 
-class ExampleDatabaseSeeder extends Seeder
+class ExampleTableSeederTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,8 +15,10 @@ class ExampleDatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Model::unguard();
-
-        $this->call(ExampleTableSeederTableSeeder::class);
+        Example::truncate();
+        Example::create([
+            'name' => 'demo',
+            'value' => 'hello world',
+        ]);
     }
 }

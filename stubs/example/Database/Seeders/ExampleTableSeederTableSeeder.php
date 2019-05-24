@@ -3,7 +3,6 @@
 namespace Modules\Example\Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Eloquent\Model;
 use Modules\Example\Entities\Example;
 
 class ExampleTableSeederTableSeeder extends Seeder
@@ -17,7 +16,7 @@ class ExampleTableSeederTableSeeder extends Seeder
     {
         Example::truncate();
         Example::create([
-            'name' => 'demo',
+            'name'  => 'demo',
             'value' => 'hello world',
         ]);
     }

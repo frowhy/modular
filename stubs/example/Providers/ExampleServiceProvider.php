@@ -2,8 +2,8 @@
 
 namespace Modules\Example\Providers;
 
-use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
 class ExampleServiceProvider extends BaseServiceProvider
 {

@@ -13,7 +13,7 @@ class ExampleRepositoryEloquent extends BaseRepository implements ExampleReposit
     ];
 
     /**
-     * Specify Model
+     * Specify Model.
      *
      * @return string
      */
@@ -23,7 +23,7 @@ class ExampleRepositoryEloquent extends BaseRepository implements ExampleReposit
     }
 
     /**
-     * Specify Presenter
+     * Specify Presenter.
      *
      * @return mixed
      */

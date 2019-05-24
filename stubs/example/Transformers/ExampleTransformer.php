@@ -5,9 +5,7 @@ namespace Modules\Example\Transformers;
 use Modules\Core\Abstracts\TransformerAbstract;
 
 /**
- * Class ExampleTransformer
- *
- * @package Modules\Example\Transformers
+ * Class ExampleTransformer.
  */
 class ExampleTransformer extends TransformerAbstract
 {
@@ -23,8 +21,8 @@ class ExampleTransformer extends TransformerAbstract
         return [
             'id' => (int) $attribute->id,
 
-            'name' => (string) $attribute->name,
-            'value' => (string) $attribute->value
+            'name'  => (string) $attribute->name,
+            'value' => (string) $attribute->value,
         ];
     }
 }

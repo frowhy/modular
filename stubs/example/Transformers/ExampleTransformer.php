@@ -5,7 +5,9 @@ namespace Modules\Example\Transformers;
 use Modules\Core\Abstracts\TransformerAbstract;
 
 /**
- * Class ExampleTransformer.
+ * Class ExampleTransformer
+ *
+ * @package Modules\Example\Transformers
  */
 class ExampleTransformer extends TransformerAbstract
 {
@@ -21,7 +23,11 @@ class ExampleTransformer extends TransformerAbstract
         return [
             'id' => (int) $attribute->id,
 
-            /* place your other model properties here */
+            'name' => (string) $attribute->name,
+            'value' => (string) $attribute->value,
+
+            'created_at' => (string) $attribute->createdAt,
+            'updated_at' => (string) $attribute->updatedAt
         ];
     }
 }

@@ -9,5 +9,8 @@ class Example extends Model
 {
     use CamelMutatorTrait;
 
-    protected $fillable = [];
+    protected $fillable = [
+        'name',
+        'value',
+    ];
 }

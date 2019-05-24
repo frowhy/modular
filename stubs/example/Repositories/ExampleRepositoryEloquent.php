@@ -9,10 +9,12 @@ use Prettus\Repository\Eloquent\BaseRepository;
 
 class ExampleRepositoryEloquent extends BaseRepository implements ExampleRepository
 {
-    use RepositoryStructureTrait;
+    protected $fieldSearchable = [
+        'name' => 'like',
+    ];
 
     /**
-     * Specify Model.
+     * Specify Model
      *
      * @return string
      */
@@ -22,20 +24,12 @@ class ExampleRepositoryEloquent extends BaseRepository implements ExampleReposit
     }
 
     /**
-     * Specify Presenter.
+     * Specify Presenter
      *
      * @return mixed
      */
     public function presenter()
     {
         return ExamplePresenter::class;
-    }
-
-    /**
-     * Boot up the repository, pushing criteria.
-     */
-    public function boot()
-    {
-        $this->pushCriteria(app('Prettus\\Repository\\Criteria\\RequestCriteria'));
     }
 }

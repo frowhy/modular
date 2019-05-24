@@ -2,7 +2,6 @@
 
 namespace Modules\Example\Repositories;
 
-use Modules\Core\Traits\RepositoryStructureTrait;
 use Modules\Example\Entities\Example;
 use Modules\Example\Presenters\ExamplePresenter;
 use Prettus\Repository\Eloquent\BaseRepository;

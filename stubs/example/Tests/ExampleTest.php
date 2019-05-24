@@ -2,25 +2,42 @@
 
 namespace Modules\Example\Tests;
 
+use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Support\Str;
 use Modules\Core\Enums\StatusCodeEnum;
 use Modules\Example\Database\Seeders\ExampleTableSeederTableSeeder;
-use Tests\TestCase;
+use Illuminate\Foundation\Testing\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ExampleTest extends TestCase
 {
     use RefreshDatabase;
 
+    protected $connectionsToTransact = [null];
+    protected $dropViews = false;
+    protected $dropTypes = false;
+
     private $baseUri = 'api/v1/';
     private $resource = 'examples';
     private $uri;
 
+    /**
+     * Creates the application.
+     *
+     * @return \Illuminate\Foundation\Application
+     */
+    public function createApplication()
+    {
+        $app = require __DIR__.'/../../../bootstrap/app.php';
+
+        $app->make(Kernel::class)->bootstrap();
+
+        return $app;
+    }
+
     public function __construct()
     {
         $this->uri = $this->baseUri.Str::plural($this->resource);
-
-        parent::__construct();
     }
 
     public function testIndex()

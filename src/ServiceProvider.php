@@ -21,5 +21,8 @@ class ServiceProvider extends LaravelServiceProvider
         $this->mergeConfigFrom(
             dirname(__DIR__).'/config/repository.php', 'repository'
         );
+        $this->mergeConfigFrom(
+            dirname(__DIR__).'/config/modules.php', 'modules'
+        );
     }
 }

@@ -14,6 +14,9 @@ class ServiceProvider extends LaravelServiceProvider
         $this->publishes([
             dirname(__DIR__).'/config/modules.php' => config_path('modules.php'),
         ], 'modular-config');
+        $this->publishes([
+            dirname(__DIR__).'/stubs/example' => base_path('modules/Example'),
+        ], 'modular-example');
     }
 
     public function register()

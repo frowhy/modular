@@ -2,10 +2,10 @@
 
 namespace Modules\Example\Providers;
 
+use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
-use Illuminate\Support\ServiceProvider;
 
-class ExampleServiceProvider extends ServiceProvider
+class ExampleServiceProvider extends BaseServiceProvider
 {
     /**
      * Indicates if loading of the provider is deferred.
@@ -37,7 +37,7 @@ class ExampleServiceProvider extends ServiceProvider
     {
         $this->app->register(RouteServiceProvider::class);
         $this->app->register(ControllerServiceProvider::class);
-        $this->app->register(ServiceProvider::class);
+        $this->app->register(ServiceServiceProvider::class);
         $this->app->register(RepositoryServiceProvider::class);
     }
 

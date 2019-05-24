@@ -8,6 +8,6 @@
 
 use Illuminate\Console\Scheduling\Schedule;
 
-return function (Schedule $schedule) {
-    //
-};
+//return function (Schedule $schedule) {
+//    //
+//};

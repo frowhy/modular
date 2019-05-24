@@ -24,10 +24,7 @@ class ExampleTransformer extends TransformerAbstract
             'id' => (int) $attribute->id,
 
             'name' => (string) $attribute->name,
-            'value' => (string) $attribute->value,
-
-            'created_at' => (string) $attribute->createdAt,
-            'updated_at' => (string) $attribute->updatedAt
+            'value' => (string) $attribute->value
         ];
     }
 }

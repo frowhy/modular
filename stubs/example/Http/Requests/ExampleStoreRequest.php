@@ -14,7 +14,7 @@ class ExampleStoreRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'required|unique:examples',
+            'name'  => 'required|unique:examples',
             'value' => 'required',
         ];
     }

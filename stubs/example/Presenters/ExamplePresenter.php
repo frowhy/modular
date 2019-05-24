@@ -6,14 +6,12 @@ use Modules\Example\Transformers\ExampleTransformer;
 use Prettus\Repository\Presenter\FractalPresenter;
 
 /**
- * Class ExamplePresenter
- *
- * @package Modules\Example\Presenters;
+ * Class ExamplePresenter.
  */
 class ExamplePresenter extends FractalPresenter
 {
     /**
-     * Transformer
+     * Transformer.
      *
      * @return \League\Fractal\TransformerAbstract
      */

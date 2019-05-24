@@ -3,11 +3,11 @@
 namespace Modules\Example\Tests;
 
 use Illuminate\Contracts\Console\Kernel;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\TestCase;
 use Illuminate\Support\Str;
 use Modules\Core\Enums\StatusCodeEnum;
 use Modules\Example\Database\Seeders\ExampleTableSeederTableSeeder;
-use Illuminate\Foundation\Testing\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ExampleTest extends TestCase
 {

@@ -35,7 +35,7 @@ return [
         'params'     => [
             'include' => 'include',
         ],
-        'serializer' => Modules\Education\Supports\ResultSerializer::class,
+        'serializer' => Modules\Core\Supports\ResultSerializer::class,
     ],
 
     /*

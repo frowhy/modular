@@ -6,6 +6,7 @@
 |
 |
 */
+
 return [
 
     /*
@@ -30,11 +31,11 @@ return [
     JsonApiSerializer
 
     */
-    'fractal' => [
-        'params' => [
+    'fractal'    => [
+        'params'     => [
             'include' => 'include',
         ],
-        'serializer' => League\Fractal\Serializer\DataArraySerializer::class,
+        'serializer' => Modules\Education\Supports\ResultSerializer::class,
     ],
 
     /*
@@ -43,7 +44,7 @@ return [
     |--------------------------------------------------------------------------
     |
     */
-    'cache' => [
+    'cache'      => [
         /*
          |--------------------------------------------------------------------------
          | Cache Status
@@ -52,7 +53,7 @@ return [
          | Enable or disable cache
          |
          */
-        'enabled' => false,
+        'enabled'    => false,
 
         /*
          |--------------------------------------------------------------------------
@@ -62,7 +63,7 @@ return [
          | Time of expiration cache
          |
          */
-        'minutes' => 30,
+        'minutes'    => 30,
 
         /*
          |--------------------------------------------------------------------------
@@ -82,7 +83,7 @@ return [
           |
           |
           */
-        'clean' => [
+        'clean'      => [
 
             /*
               |--------------------------------------------------------------------------
@@ -102,14 +103,14 @@ return [
               | delete : Clear Cache on delete Entry in repository
               |
               */
-            'on' => [
+            'on'      => [
                 'create' => true,
                 'update' => true,
                 'delete' => true,
             ],
         ],
 
-        'params' => [
+        'params'  => [
             /*
             |--------------------------------------------------------------------------
             | Skip Cache Params
@@ -151,7 +152,7 @@ return [
     | Settings of request parameters names that will be used by Criteria
     |
     */
-    'criteria' => [
+    'criteria'   => [
         /*
         |--------------------------------------------------------------------------
         | Accepted Conditions
@@ -217,7 +218,7 @@ return [
         |   http://prettus.local/?search=lorem&searchJoin=or
         |
         */
-        'params' => [
+        'params'             => [
             'search'       => 'search',
             'searchFields' => 'searchFields',
             'filter'       => 'filter',
@@ -233,10 +234,10 @@ return [
     |--------------------------------------------------------------------------
     |
     */
-    'generator' => [
-        'basePath'          => app_path(),
+    'generator'  => [
+        'basePath'          => app()->path(),
         'rootNamespace'     => 'App\\',
-        'stubsOverridePath' => app_path(),
+        'stubsOverridePath' => app()->path(),
         'paths'             => [
             'models'       => 'Entities',
             'repositories' => 'Repositories',

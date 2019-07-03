@@ -126,7 +126,7 @@ return [
             'provider'      => ['path' => 'Providers', 'generate' => false],
             'assets'        => ['path' => 'Resources/assets', 'generate' => false],
             'lang'          => ['path' => 'Resources/lang', 'generate' => true],
-            'views'         => ['path' => 'Resources/views', 'generate' => false],
+            'views'         => ['path' => 'Resources/views', 'generate' => true],
             'test'          => ['path' => 'Tests', 'generate' => true],
             'repository'    => ['path' => 'Repositories', 'generate' => true],
             'event'         => ['path' => 'Events', 'generate' => false],
